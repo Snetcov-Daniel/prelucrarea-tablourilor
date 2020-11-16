@@ -1,9 +1,13 @@
 #include <iostream>
-#include <math.h>
+#include <math.h> // biblioteca aceasta imi va trebui pentru sintaxa: <sqrt> ,pentru a calcula media geometrica
 using namespace std;
 
-int* CreateSingleArray(int size)
+int* CreateSingleArray(int size) 
 {
+	/*Functia aceasta initializeaza un tablou unidimensional dinamic prin pointer
+	luand un argument: size( adica cat de lung va fi tabloul) si il returneaza prin sintaxa: return
+	ca sa il putem folosi in functia principala(int main).*/
+
 	int *SingleArray;
 	SingleArray = new int[size];
 
@@ -12,6 +16,12 @@ int* CreateSingleArray(int size)
 
 void ManualFillingSingleArray(int* SingleArray,int size)
 {
+	/*Aceasta functie este pentru introducerea datelor de la tastatura intr-un tablou unidimensional dinamic prin pointer.
+	In argumente se i-au tabloul ce trebuie prelucreat si lungimea lui - size.
+	Daca tabloul este initializat prin functia de mai sus atunci ca argument se va scrie:
+	ManualFillingSingleArray(SingleArray,size),unde SingleArray este denumirea tabloului,
+	iar daca tabloul este initializat in functia principala fara pointer, atunci trebuie de scris cu adresa sa:
+	ManualFillingSingleArray(&SingleArray,size), unde SingleArray este denumirea tabloului*/
 	for (int i = 0; i < size; i++)
 	{
 		cout << "Introduceti numarul de pe pozitia " << i << " \t";
@@ -22,6 +32,12 @@ void ManualFillingSingleArray(int* SingleArray,int size)
 
 void AutoFillSingleArray(int *SingleArray,int size,int lim)
 {
+	/*Functia aceasta este pentru introducerea datelor in tablou de calculator.
+	In argumente se i-au tabloul,lungimea tabloului - size , si limita pana la care numar se vor genera cifrele - lim.
+	Daca tabloul era initializat prin functia "CreateSingleArray", argumentele se vor scrie:
+	AutoFIllSingleArray(SingleArray,size,lim),unde SingleArray este denumirea  tabloului,iar daca tabloul
+	este initializat in functia principala fara pointer,atunci tabloul trebuie scris cu adresa sa:
+	AutoFillSingleArray(&SingleArray,size,lim), unde SingleArray este denumirea tabloului.*/
 	for (int i = 0; i < size; i++)
 	{
 		SingleArray[i] = rand() % lim;
@@ -30,6 +46,12 @@ void AutoFillSingleArray(int *SingleArray,int size,int lim)
 
 void PrintSingleArray(int* SingleArray,int size)
 {
+	/*Aceasta functie arata ce date contine un tablou unidimensional.
+	ca argument se ia tabloul si marimea lui: "size".
+	La fel ca si mai sus: daca tabloul este initializat prin functia "CreateSingleArray"
+	ca argument de tablou se ia PrintSingleArray(SingleArray,size), unde SingleArray este denumirea tabloului
+	,iar daca tabloul este initializat in functia principala fara pointer, trebuie de scris argumentul cu adresa sa:
+	PrintSingleArray(&SingleArray,size),under SingleArray este denumirea tabloului*/
 	for (int i = 0; i < size; i++)
 	{
 		cout << SingleArray[i] << endl;
@@ -38,6 +60,7 @@ void PrintSingleArray(int* SingleArray,int size)
 
 int** CreateDoubleArray(int rows, int cols)
 {
+	/*Aceasta functie creaza un tablou bidimensional dinamic luand in argument cate randuri si coloane va avea tabloul*/
 	int** DoubleArray;
 	DoubleArray = new int* [rows]; 
 	for (int i = 0; i < rows; i++)
@@ -50,6 +73,13 @@ int** CreateDoubleArray(int rows, int cols)
 
 void ManualFillingDoubleArray(int** DoubleArray,int  rows,int  cols)
 {
+	/*La fel ca si functia cu tabloul unidimensional de mai sus,
+	aceasta functie este pentru introducerea datelor sinestatator de utilizator in tablou.
+	In argumente se i-au tabloul ce trebuie prelucrat - "DoubleArray",randurile - "rows" si coloanele - "cols".
+	Daca folosim functia de mai sus in argument de tablou trebuie doar de scris: 
+	"ManualFillingDoubleArray(DoubleArray,rows,cols)",deoarece tabloul este cu pointeri
+	,iar daca initializam tabloul in functia principala fara pointeri - trebuie de a aduce argumentul cu tablou cu adresa sa:
+	"ManualFillingDoubleArray(&DoubleArray,rows,cols)"*/
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
@@ -62,6 +92,13 @@ void ManualFillingDoubleArray(int** DoubleArray,int  rows,int  cols)
 
 void AutoFillDoubleArray(int** DoubleArray, int rows, int cols,int lim)
 {
+	/*Aceasta functie umple tabloul undimensional dinamic cu cifre psevdohaotice
+	luand in considerare pana la care numar se vor genera(utilizatorul va alege).Argumentele luate pentru functie
+	sunt tabloul ce trebuie prelucrat : "DoubleArray", randurile - "rows",coloanele - "cols" si limita,
+	pana la care numar se vor genera cifrele - "lim".Daca tabloul a fost initializat prin functia "Create DoubleArray"
+	atunci functia se va scrie: AutoFillDoubleArray(DoubleArray,rows,cols,lim),unde DoubleArray este denumirea  tabloului,
+	iar daca tabloul era initializat in functia principala fara pointer,atuncie functia se va scrie cu adresa tabloului:
+	AutoFillDoubleArray(&DoubleArray,rows,cols,lim),unde DoubleArray este denumirea tabloului.**/
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
@@ -73,6 +110,12 @@ void AutoFillDoubleArray(int** DoubleArray, int rows, int cols,int lim)
 
 void PrintDoubleArray(int** DoubleArray, int rows, int cols)
 {
+	/*Aceasta functie reprezinta pe ecran ce date contine tabloul.
+	Ca argumente se i-au tabloul,randurile si coloanele.
+	Daca tabloul este initializat prin functia "CreateDoubleArray", atunci functia se va scrie:
+	PrintDoubleArray(DoubleArray,rows,cols),unde DoubleArray este denumirea tabloului,
+	iar daca tabloul este initializat in functia principala fara pointer, atunci argumentul cu tablou es va scrie cu adresa sa:
+	PrintDoubleArray(&DoubleArray,rows,cols),under DoubleArray este denumirea tabloului*/
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
@@ -95,9 +138,10 @@ int main()
 	{
 		case 1:
 		{
+			/*Acest case se va executa daca utilizatorul doreste sa lucreze cu un tablou unidimensional*/
 			int* SingleArray;
 			cout << "Cate cifre va avea vectorul?" << endl;
-			int size;
+			int size; /*Lungimea tabloului*/
 			cin >> size;
 			cout << endl;
 			cout << "1.Doriti sa introduceti datele sinestatator? " << endl;
@@ -109,6 +153,7 @@ int main()
 			{
 				case 1:
 				{
+					/*Acest case se va executa daca utilizatorul doreste sinestatator sa introduca datele*/
 					SingleArray = CreateSingleArray(size);
 					ManualFillingSingleArray(SingleArray, size);
 
@@ -125,7 +170,7 @@ int main()
 					cout << "8.Suma elementelor de pe pozitia impara a vectorului." << endl;
 					cout << "9.Produsul elementelor de pe pozitia para a vectorului.\t";
 					cout << "10.Produsul elementelor de pe pozitia impara a vectorului." << endl;
-					cin >> v5;
+					cin >> v5; /*aici utilizator alege cum doreste sa prelucreze tabloul*/
 					cout << endl;
 					switch (v5)
 					{
@@ -133,27 +178,29 @@ int main()
 						{
 							int MediaAritmetica;
 							int suma = 0;
-							int impartirea = 0;
+							int impartirea = 0; 
 							for (int i = 0; i < size; i++)
 							{
 								suma = suma + SingleArray[i];
-								impartirea++;
+								impartirea++; /*Ea se va mari de atatea ori de cate ori se va executa ciclul*/
 							}
 							MediaAritmetica = suma / impartirea;
 							cout << "Media aritmetica a elementelor vectorului este: " << MediaAritmetica << endl;
+							delete[] SingleArray; /*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
 						case 2:
 						{
-							double MediaGeometrica;
+							double MediaGeometrica; /*Am folosit double,ci nu float,pentru a economisi memoria, float - 8 bytes,double - 4*/
 							int suma = 1;
 							for (int i = 0; i < size; i++)
 							{
 								suma = suma * SingleArray[i];
 							}
-							MediaGeometrica = sqrt(suma);
+							MediaGeometrica = sqrt(suma); /*Aici vedem dece am introdus biblioteca math.h*/
 							cout << "Media geometrica a elementelor din vector este: " << MediaGeometrica << endl;
+							delete[] SingleArray; /*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
@@ -162,12 +209,13 @@ int main()
 							int suma = 0;
 							for (int i = 0; i < size; i++)
 							{
-								if (SingleArray[i] % 2 == 0)
+								if (SingleArray[i] % 2 == 0) /*Daca numarul este par el va dea la impartire dupa virgula  0*/
 								{
 									suma = suma + SingleArray[i];
 								}
 							}
 							cout << "Suma elementelor pare din vector este: " << suma << endl;
+							delete[] SingleArray; /*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
@@ -176,18 +224,19 @@ int main()
 							int suma = 0;
 							for (int i = 0; i < size; i++)
 							{
-								if (SingleArray[i] % 2 != 0)
+								if (SingleArray[i] % 2 != 0)/* Orice numar impar impartit la 2 va dea dupa virgula un rest oarecare*/
 								{
 									suma = suma + SingleArray[i];
 								}
 							}
 							cout << "Suma elementelor impare din vector este: " << suma << endl;
+							delete[] SingleArray;/*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
 						case 5:
 						{
-							int produsul = 1;
+							int produsul = 1; /*Inmultirea cu 0 va dea 0 tot timpul,deci trebuie sa inmultim cu 1 prima data*/
 							for (int i = 0; i < size; i++)
 							{
 								if (SingleArray[i] % 2 == 0)
@@ -196,6 +245,7 @@ int main()
 								}
 							}
 							cout << "Produsul elementelor pare din vector este: " << produsul << endl;
+							delete[] SingleArray;/*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
@@ -210,6 +260,7 @@ int main()
 								}
 							}
 							cout << "Suma elementelor impare din vector este: " << produsul << endl;
+							delete[] SingleArray;/*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
@@ -218,12 +269,13 @@ int main()
 							int suma = 0;
 							for (int i = 0; i < size; i++)
 							{
-								if (i % 2 == 0 && i != 0)
+								if (i % 2 == 0 && i != 0) /*i este egal cu pozitia in vector, aici putem afla, este el pare, sau nu*/
 								{
 									suma = suma + SingleArray[i];
 								}
 							}
 							cout << "Suma elementelor din pozitiile pare a vectorului este: " << suma << endl;
+							delete[] SingleArray;/*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
@@ -232,12 +284,13 @@ int main()
 							int suma = 0;
 							for (int i = 0; i < size; i++)
 							{
-								if (i % 2 != 0 && i != 0)
+								if (i % 2 != 0 && i != 0) /*Impartirea cu 0  va provoca probleme...*/
 								{
 									suma = suma + SingleArray[i];
 								}
 							}
 							cout << "Suma elementelor din pozitiile impare a vectorului este: " << suma << endl;
+							delete[] SingleArray;/*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
@@ -252,6 +305,7 @@ int main()
 								}
 							}
 							cout << "Produsul elementelor din pozitiile pare a vectorului este: " << produsul << endl;
+							delete[] SingleArray;/*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 						
@@ -266,6 +320,7 @@ int main()
 								}
 							}
 							cout << "Produsul elementelor din pozitiile pare a vectorului este: " << produsul << endl;
+							delete[] SingleArray;/*Nu uitam sa stergem orice tablou dinamic!*/
 						}
 							break;
 
@@ -279,7 +334,7 @@ int main()
 				{
 					cout << "Pana la care numar sa fie generate numerele?" << endl;
 					int lim;
-					cin >> lim;
+					cin >> lim; /*aici introducem pana la care numar se vor genera cifrele in functie,nu confundam cu lungimea tabloului!*/
 					cout << endl;
 					SingleArray = CreateSingleArray(size);
 					AutoFillSingleArray(SingleArray, size, lim);
@@ -292,7 +347,7 @@ int main()
 					{
 						case 1:
 						{
-							PrintSingleArray(SingleArray, size);
+							PrintSingleArray(SingleArray, size); 
 						}
 							break;
 						case 2:
@@ -317,6 +372,7 @@ int main()
 					cout << endl;
 					switch (v5)
 					{
+						/*Daca ai citit comentariile de la case 1 (switch(v4)),vei intelege ce se intampla aici*/
 						case 1:
 						{
 							int MediaAritmetica;
@@ -329,6 +385,7 @@ int main()
 							}
 							MediaAritmetica = suma / impartirea;
 							cout << "Media aritmetica a elementelor vectorului este: " << MediaAritmetica << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -345,6 +402,7 @@ int main()
 							}
 							MediaGeometrica = sqrt(suma);
 							cout << "Media geometrica a elementelor din vector este: " << MediaGeometrica << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -359,6 +417,7 @@ int main()
 								}
 							}
 							cout << "Suma elementelor pare din vector este: " << suma << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -373,6 +432,7 @@ int main()
 								}
 							}
 							cout << "Suma elementelor impare din vector este: " << suma << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -387,6 +447,7 @@ int main()
 								}
 							}
 							cout << "Produsul elementelor pare din vector este: " << produsul << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -401,6 +462,7 @@ int main()
 								}
 							}
 							cout << "Suma elementelor impare din vector este: " << produsul << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -415,6 +477,7 @@ int main()
 								}
 							}
 							cout << "Suma elementelor din pozitiile pare a vectorului este: " << suma << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -429,6 +492,7 @@ int main()
 								}
 							}
 							cout << "Suma elementelor din pozitiile impare a vectorului este: " << suma << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -443,6 +507,7 @@ int main()
 								}
 							}
 							cout << "Produsul elementelor din pozitiile pare a vectorului este: " << produsul << endl;
+							delete[] SingleArray;
 						}
 							break;
 						
@@ -457,6 +522,7 @@ int main()
 								}
 							}
 							cout << "Produsul elementelor din pozitiile pare a vectorului este: " << produsul << endl;
+							delete[] SingleArray;
 						}
 							break;
 
@@ -477,15 +543,17 @@ int main()
 				int** DoubleArray;
 				cout << "Cate randuri va avea matricea?" << endl;
 				int rows;
-				cin >> rows;
+				cin >> rows; /*Cate randuri va avea tabloul*/
 				cout << endl;
 				cout << "Cate coloane va avea matricea?" << endl;
 				int cols;
 				cout << endl;
-				cin >> cols;
+				cin >> cols; /*Cate coloane va avea tabloul*/
 				cout << endl;
-				if (rows != cols)
+				if (rows != cols) 
 				{
+					/*Aici utilizatorul va primi un mesaj ca tabloul bidimensional se va primi dreptunghic si va avea mai putine variante de a il prelucra
+					si ii propune sa re-introduca randurile si coloanele*/
 					cout << "Matricea va fi dreptunghiulara,ceea ce inseamna ca for vi mai putine posibilitati de a il prelucra!" << endl;
 					cout << "Doriti sa recreati matricea in una patrulatera?" << endl;
 					cout << "Da - 1\t Nu - 2" << endl;
@@ -496,6 +564,7 @@ int main()
 					{
 						case 1:
 						{
+							/*Daca utilizatorul s-a razgandit , variabilele rows si cols o sa fie re-introduse*/
 							cout << "Cate randuri va avea matricea?" << endl;
 							int rows;
 							cin >> rows;
@@ -507,6 +576,7 @@ int main()
 						}
 							break;
 						case 2:
+						/*Daca utilizatorul nu s-a razgandit el va merge mai departe cu tabloul dreptunghic*/
 						break;
 
 						default: cout << "A-ti introdus un caracter incorect" << endl;
@@ -558,6 +628,11 @@ int main()
 									}
 									MediaAritmetica = suma / impartirea;
 									cout << "Media aritmetica a elementelor matricei este: " << MediaAritmetica << endl;
+									for (int i = 0; i < rows; i++) /*Aici este procesul de exterminare a tabloului bidimensional*/
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 2:
@@ -573,6 +648,11 @@ int main()
 									}
 									mediaGeometrica = sqrt(produsul);
 									cout << "Media geometrica a elementelor din matrice este: " << mediaGeometrica << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 3:
@@ -589,7 +669,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor pare din matrice este: " << suma << endl;
-									
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 4:
@@ -606,6 +690,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor impare din matrice este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 5:
@@ -622,6 +711,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor pare din matrice este: " << produsul << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 6:
@@ -638,7 +732,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor impare din matrice este: " << produsul << endl;
-
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 7:
@@ -655,6 +753,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor diagonalei principale a matricei este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 8:
@@ -671,6 +774,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor diagonalei principale a matricei este: " << produsul << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 9:
@@ -683,6 +791,11 @@ int main()
 											suma = suma + DoubleArray[temprows][tempcols];
 									}
 									cout << "Suma diagonalei secundare a matricei este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 10:
@@ -695,6 +808,11 @@ int main()
 										produs = produs * DoubleArray[temprows][tempcols];
 									}
 									cout << "Produsul diagonalei secundare a matricei este: " << produs << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								default: cout << "A-ti introdus un caracter incorect" << endl;
@@ -730,6 +848,11 @@ int main()
 									}
 									MediaAritmetica = suma / impartirea;
 									cout << "Media aritmetica a elementelor matricei este: " << MediaAritmetica << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 2:
@@ -745,6 +868,11 @@ int main()
 									}
 									mediaGeometrica = sqrt(produsul);
 									cout << "Media geometrica a elementelor din matrice este: " << mediaGeometrica << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 3:
@@ -761,7 +889,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor pare din matrice este: " << suma << endl;
-									
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 4:
@@ -778,6 +910,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor impare din matrice este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 5:
@@ -794,6 +931,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor pare din matrice este: " << produsul << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 6:
@@ -810,7 +952,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor impare din matrice este: " << produsul << endl;
-
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								default: cout << "A-ti introdus un caracter incorect" << endl;
@@ -881,6 +1027,11 @@ int main()
 									}
 									MediaAritmetica = suma / impartirea;
 									cout << "Media aritmetica a elementelor matricei este: " << MediaAritmetica << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 2:
@@ -896,6 +1047,11 @@ int main()
 									}
 									mediaGeometrica = sqrt(produsul);
 									cout << "Media geometrica a elementelor din matrice este: " << mediaGeometrica << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 3:
@@ -912,7 +1068,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor pare din matrice este: " << suma << endl;
-									
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 4:
@@ -929,6 +1089,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor impare din matrice este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 5:
@@ -945,6 +1110,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor pare din matrice este: " << produsul << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 6:
@@ -961,7 +1131,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor impare din matrice este: " << produsul << endl;
-
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 7:
@@ -978,6 +1152,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor diagonalei principale a matricei este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 8:
@@ -994,6 +1173,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor diagonalei principale a matricei este: " << produsul << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 9:
@@ -1006,6 +1190,11 @@ int main()
 											suma = suma + DoubleArray[temprows][tempcols];
 									}
 									cout << "Suma diagonalei secundare a matricei este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 10:
@@ -1018,6 +1207,11 @@ int main()
 										produs = produs * DoubleArray[temprows][tempcols];
 									}
 									cout << "Produsul diagonalei secundare a matricei este: " << produs << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								default: cout << "A-ti introdus un caracter incorect" << endl;
@@ -1053,6 +1247,11 @@ int main()
 									}
 									MediaAritmetica = suma / impartirea;
 									cout << "Media aritmetica a elementelor matricei este: " << MediaAritmetica << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 2:
@@ -1068,6 +1267,11 @@ int main()
 									}
 									mediaGeometrica = sqrt(produsul);
 									cout << "Media geometrica a elementelor din matrice este: " << mediaGeometrica << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 3:
@@ -1084,7 +1288,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor pare din matrice este: " << suma << endl;
-									
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 4:
@@ -1101,6 +1309,11 @@ int main()
 										}
 									}
 									cout << "Suma elementelor impare din matrice este: " << suma << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 5:
@@ -1117,6 +1330,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor pare din matrice este: " << produsul << endl;
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								case 6:
@@ -1133,7 +1351,11 @@ int main()
 										}
 									}
 									cout << "Produsul elementelor impare din matrice este: " << produsul << endl;
-
+									for (int i = 0; i < rows; i++)
+									{
+										delete[] DoubleArray[i];
+									}
+									delete[] DoubleArray;
 								}
 									break;
 								default: cout << "A-ti introdus un caracter incorect" << endl;
