@@ -566,11 +566,9 @@ int main()
 						{
 							/*Daca utilizatorul s-a razgandit , variabilele rows si cols o sa fie re-introduse*/
 							cout << "Cate randuri va avea matricea?" << endl;
-							int rows;
 							cin >> rows;
 							cout << endl;
 							cout << "Cate coloane va avea matricea?" << endl;
-							int cols;
 							cin >> cols;
 							cout << endl;
 						}
